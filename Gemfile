@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 
 gem "middleman", "~>3.3.12"
-gem "slim", "~> 3.0.3"
-gem "bootstrap-sass", "~> 3.3.4"
+gem "slim", "~> 3.0.3", :require => false
+gem "bootstrap-sass", "~> 3.3.4", :require => false
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
