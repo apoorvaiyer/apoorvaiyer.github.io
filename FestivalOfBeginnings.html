@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival of Beginnings - Event Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f0e3 0%, #fff9f0 100%);
+            color: #5d2905;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .header-image {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-image img {
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 0.8;
+        }
+
+        header {
+            flex: 1;
+            text-align: center;
+            padding: 30px 20px;
+            background: rgb(188, 36, 112);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(188, 36, 112, 0.3);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin: 0 20px;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            color: rgb(253,209,44);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .zelle-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.1);
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b00;
+        }
+
+        .zelle-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .zelle-header h2 {
+            color: #d45200;
+            font-size: 1.8rem;
+        }
+
+        .zelle-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .qr-code-container {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .qr-code-container img {
+            max-width: 400px;
+            border: 5px solid #f8f0e3;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .zelle-info {
+            flex: 1 1 300px;
+        }
+
+        .zelle-info h3 {
+            color: #d45200;
+            margin-bottom: 15px;
+        }
+
+        .zelle-info p {
+            padding: 15px;
+            background: #fff9f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .prasad-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .prasad-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .prasad-header h2 {
+            color: #d45200;
+            font-size: 1.8rem;
+        }
+
+        .prasad-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 20px;
+        }
+
+        .prasad-link {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #ff6b00, #d45200);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(212, 82, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prasad-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(212, 82, 0, 0.4);
+        }
+
+        .volunteer-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .volunteer-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .volunteer-header h2 {
+            color: #d45200;
+            font-size: 1.8rem;
+        }
+
+        .volunteer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .volunteer-link {
+            padding: 15px 25px;
+            background: #f8f0e3;
+            color: #5d2905;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid #d45200;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            min-width: 430px;
+
+        }
+
+        .volunteer-link:hover {
+            background: #ff6b00;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .schedule-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .day-card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #ff6b00;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(139, 69, 19, 0.15);
+        }
+
+        .day-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #ff6b00, #d45200);
+        }
+
+        .day-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #d45200;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .day-title i {
+            color: #ff6b00;
+        }
+
+        .activities {
+            margin-bottom: 25px;
+        }
+
+        .activities h3 {
+            color: #ff6b00;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .activity-list {
+            list-style-type: none;
+        }
+
+        .activity-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #fff9f0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid #ff6b00;
+        }
+
+        .activity-time {
+            font-weight: bold;
+            color: #d45200;
+        }
+
+        .volunteer-links-day {
+            margin-top: 20px;
+        }
+
+        .volunteer-links-day h3 {
+            color: #d45200;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .volunteer-link-day {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f0e3;
+            color: #5d2905;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid #d45200;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volunteer-link-day:hover {
+            background: #ff6b00;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #d45200;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .zelle-content {
+                flex-direction: column;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .header-image {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <div class="header-image">
+                <img src="./Ganesha.png" alt="Festival Logo">
+            </div>
+            
+            <header>
+                <h1><i class="fas fa-mandala"></i> Festival of Beginnings</h1>
+                <p class="subtitle">August 25 - August 31, 2025, Bluffview, Leander Texas</p>
+            </header>
+            
+            <div class="header-image">
+                <img src="./Ganesha.png" alt="Festival Logo" style="transform: scaleX(-1);">
+            </div>
+        </div>
+
+        <!-- Zelle Payment Information Block -->
+        <div class="zelle-section">
+            <div class="zelle-header">
+                <i class="fas fa-money-bill-wave"></i>
+                <h2>Zelle Payment Information</h2>
+            </div>
+            <div class="zelle-content">
+                <div class="qr-code-container">
+                    <img src="./QR.jpg" alt="Zelle QR Code">
+                    <p>Zelle Payment QR Code</p>
+                </div>
+                <div class="zelle-info">
+                    <h3><i class="fas fa-envelope"></i> Zelle Email Address</h3>
+                    <p>Payment email: <strong>zelle@festivalofbeginnings.org</strong></p>
+                    <p>For any payment-related queries, please contact:</p>
+                    <p><strong>Event Coordinator</strong></p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pooja and Prasadham Signups -->
+        <div class="prasad-section">
+            <div class="prasad-header">
+                <i class="fas fa-om"></i>
+                <h2>Pooja and Prasadham Signups</h2>
+            </div>
+            <p>All Pooja Sittings are held at:<br><strong>1429 Oropa Way, Leander, TX</strong></p>
+            <div class="prasad-links">
+                <a href="https://forms.gle/iwZ1nE9qrzeGMfVP8" class="prasad-link">
+                    <i class="fas fa-utensils"></i> Prasadam Signup
+                </a>
+                <a href="https://www.signupgenius.com/go/10C0548A5A729A0FCCF8-57949092-perform" class="prasad-link">
+                    <i class="fas fa-pray"></i> Pooja Signup
+                </a>
+            </div>
+        </div>
+
+        <!-- Volunteer Signup Links -->
+        <div class="volunteer-section">
+            <div class="volunteer-header">
+                <i class="fab fa-whatsapp"></i>
+                <h2>Volunteer Signup Links</h2>
+            </div>
+            <div class="volunteer-links">
+                <a href="https://chat.whatsapp.com/DMicKy62RwLLomuN3X1OeP" class="volunteer-link">
+                    <i class="fab fa-whatsapp"></i> Clay Ganesha Volunteers - Monday, August 25
+                </a>
+                <a href="https://chat.whatsapp.com/Eds9oiAzDJs9mDrAZql3uX" class="volunteer-link">
+                    <i class="fab fa-whatsapp"></i> Pooja Sitting Volunteers - Tuesday, August 26
+                </a>
+                <a href="https://chat.whatsapp.com/Eds9oiAzDJs9mDrAZql3uX" class="volunteer-link">
+                    <i class="fab fa-whatsapp"></i> Art Workshop Volunteers - Wednesday, August 27
+                </a>
+                <a href="https://chat.whatsapp.com/Fp4IuQ0WZrQ243jWkP8IpR" class="volunteer-link">
+                    <i class="fab fa-whatsapp"></i> Carnival Volunteers - Friday, August 29
+                </a>
+                <a href="https://chat.whatsapp.com/GSQ1CpoUPXh8yG4QddzooA" class="volunteer-link">
+                    <i class="fab fa-whatsapp"></i> Cultural Night Volunteers - Saturday, August 30
+                </a>
+                <a href="https://chat.whatsapp.com/J93YMktPv1l4sYQAOTtgnh" class="volunteer-link">
+                    <i class="fab fa-whatsapp"></i> Dinner Volunteers - Saturday, August 30
+                </a>
+            </div>
+        </div>
+
+        <!-- Schedule -->
+        <div class="schedule-container">
+            <!-- Monday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Monday, August 25</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">6:00 PM</span>
+                            <span>Clay Ganesha Batch 1</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">7:00 PM</span>
+                            <span>Clay Ganesha Batch 2</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/DMicKy62RwLLomuN3X1OeP" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Clay Ganesha Volunteers - Monday, August 25
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Tuesday, August 26</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">5:00 PM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/Eds9oiAzDJs9mDrAZql3uX" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Pooja Sitting Volunteers - Tuesday, August 26
+                    </a>
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Wednesday, August 27</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">6:00 PM</span>
+                            <span>Art Workshop 1</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">6:45 PM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/Eds9oiAzDJs9mDrAZql3uX" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Art Workshop Volunteers - Wednesday, August 27
+                    </a>
+                    <a href="https://chat.whatsapp.com/JBPzMmDG0Gt1SMidPLnd0v" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Pooja Sitting Volunteers - Wednesday, August 27
+                    </a>
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Thursday, August 28</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">6:45 PM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/JBPzMmDG0Gt1SMidPLnd0v" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Pooja Sitting Volunteers - Thursday, August 28
+                    </a>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Friday, August 29</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">6:00 PM</span>
+                            <span>Art Workshop 2</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">6:30 PM</span>
+                            <span>Carnival + Bluffview Community Food Stalls</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/JBPzMmDG0Gt1SMidPLnd0v" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Art Workshop Volunteers - Friday, August 29
+                    </a>
+                    <a href="https://chat.whatsapp.com/Fp4IuQ0WZrQ243jWkP8IpR" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Carnival Volunteers - Friday, August 29
+                    </a>
+                </div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Saturday, August 30</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">10:00 AM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">6:00 PM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">6:30 PM</span>
+                            <span>Cultural Group Performances + Community Dinner</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/JBPzMmDG0Gt1SMidPLnd0v" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Pooja Sitting Volunteers - Saturday, August 30
+                    </a>
+                    <a href="https://chat.whatsapp.com/GSQ1CpoUPXh8yG4QddzooA" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Cultural Night Infrastructure Volunteers - Saturday, August 30
+                    </a>
+                    <a href="https://chat.whatsapp.com/J93YMktPv1l4sYQAOTtgnh" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Dinner Volunteers - Saturday, August 30
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="day-card">
+                <h2 class="day-title"><i class="fas fa-calendar-day"></i> Sunday, August 31</h2>
+                <div class="activities">
+                    <h3><i class="fas fa-calendar-alt"></i> Activities</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-time">10:00 AM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">4:00 PM</span>
+                            <span>Pooja Sitting</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-time">5:00 PM</span>
+                            <span>Community Idol Visarjan/Nimmarjanam</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="volunteer-links-day">
+                    <h3><i class="fas fa-users"></i> Volunteer Links</h3>
+                    <a href="https://chat.whatsapp.com/JBPzMmDG0Gt1SMidPLnd0v" class="volunteer-link-day">
+                        <i class="fab fa-whatsapp"></i> Pooja Sitting Volunteers - Sunday, August 31
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Festival of Beginnings - Bluffview Unity in Diversity</p>
+        </footer>
+    </div>
+</body>
+</html>
