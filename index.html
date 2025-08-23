@@ -238,8 +238,7 @@
             align-items: center;
             gap: 10px;
             font-weight: 500;
-            min-width: 430px;
-
+            flex: 1 1 300px; /* Allow flexible width on mobile */
         }
 
         .volunteer-link:hover {
@@ -318,11 +317,14 @@
             justify-content: space-between;
             align-items: center;
             border-left: 3px solid #ff6b00;
+            flex-wrap: wrap; /* Allow wrapping on very small screens */
+            gap: 10px;
         }
 
         .activity-time {
             font-weight: bold;
             color: #d45200;
+            min-width: 80px; /* Prevent too narrow */
         }
 
         .volunteer-links-day {
@@ -365,18 +367,14 @@
         }
 
         @media (max-width: 768px) {
-            .schedule-container {
-                flex-direction: column;
+            body {
+                padding: 10px; /* Reduce padding on mobile */
             }
-            
-            h1 {
-                font-size: 2.2rem;
+
+            .container {
+                padding: 0 10px;
             }
-            
-            .zelle-content {
-                flex-direction: column;
-            }
-            
+
             .header-container {
                 flex-direction: column;
                 gap: 20px;
@@ -385,6 +383,113 @@
             .header-image {
                 width: 80px;
                 height: 80px;
+            }
+
+            header {
+                margin: 0;
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .zelle-section,
+            .prasad-section,
+            .volunteer-section,
+            .day-card {
+                padding: 20px;
+            }
+
+            .zelle-content {
+                flex-direction: column;
+            }
+
+            .qr-code-container img {
+                max-width: 100%;
+            }
+
+            .prasad-links {
+                flex-direction: column;
+            }
+
+            .prasad-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .volunteer-links {
+                flex-direction: column;
+            }
+
+            .volunteer-link {
+                width: 100%;
+                min-width: auto;
+                justify-content: flex-start; /* Align left on mobile */
+            }
+
+            .schedule-container {
+                flex-direction: column;
+            }
+
+            .day-title {
+                font-size: 1.6rem;
+            }
+
+            .activities h3,
+            .volunteer-links-day h3 {
+                font-size: 1.2rem;
+            }
+
+            .activity-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .activity-time {
+                margin-bottom: 5px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .zelle-header h2,
+            .prasad-header h2,
+            .volunteer-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .zelle-info p,
+            .prasad-section p {
+                font-size: 1rem;
+            }
+
+            .prasad-link,
+            .volunteer-link,
+            .volunteer-link-day {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+
+            .activity-item,
+            .volunteer-link-day {
+                font-size: 0.95rem;
             }
         }
     </style>
